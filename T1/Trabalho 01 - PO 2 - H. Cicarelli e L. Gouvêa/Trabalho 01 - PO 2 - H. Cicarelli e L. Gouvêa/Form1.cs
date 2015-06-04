@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bestcode.MathParser;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         public Form1()
         {
             InitializeComponent();
+            MathParser m = new MathParser();
         }
+
     }
 }

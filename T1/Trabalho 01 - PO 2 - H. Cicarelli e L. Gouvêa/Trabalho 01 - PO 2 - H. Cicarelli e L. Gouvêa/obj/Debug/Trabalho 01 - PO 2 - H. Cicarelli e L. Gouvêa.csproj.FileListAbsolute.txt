@@ -1,0 +1,10 @@
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\obj\Debug\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa.csprojResolveAssemblyReference.cache
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\obj\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.Form1.resources
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\obj\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.Properties.Resources.resources
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\obj\Debug\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa.csproj.GenerateResource.Cache
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\bin\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.dll.config
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\bin\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.dll
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\bin\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.pdb
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\bin\Debug\bcParser.NET.dll
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\obj\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.dll
+D:\Users\Lucas\Documents\GitHub\PO2\T1\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\Trabalho 01 - PO 2 - H. Cicarelli e L. Gouvêa\obj\Debug\Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.pdb
