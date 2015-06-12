@@ -16,6 +16,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         {
             InitializeComponent();
             MathParser m = new MathParser();
+            //Temos que aprender a usar as paradinhas do parser, tem documentação na pasta acho
         }
         
         //Escolha do método pelos radioButtons
