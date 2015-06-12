@@ -36,7 +36,7 @@
     <StartupObject>Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Mathematical_symbols_in_four_squares_32.ico</ApplicationIcon>
+    <ApplicationIcon>Mathematical_symbols_in_four_squares_64.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="bcParser.NET">
@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Mathematical_symbols_in_four_squares_32.ico" />
+    <Content Include="Mathematical_symbols_in_four_squares_64.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
