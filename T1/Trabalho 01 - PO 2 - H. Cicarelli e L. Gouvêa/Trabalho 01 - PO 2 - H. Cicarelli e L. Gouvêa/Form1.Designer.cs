@@ -36,8 +36,8 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -70,6 +70,7 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "Newton";
             this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // radioButton5
             // 
@@ -81,6 +82,7 @@
             this.radioButton5.TabStop = true;
             this.radioButton5.Text = "Fibonacci";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -92,6 +94,7 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Dicotômica";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -103,6 +106,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Seção Áurea";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -114,6 +118,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Bisseção";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -125,6 +130,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Busca uniforme";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -137,13 +143,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Função";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(48, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 20);
-            this.textBox1.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -152,6 +151,13 @@
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "F(x) = ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(48, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(256, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -166,12 +172,14 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBox2.ForeColor = System.Drawing.Color.Lime;
             this.textBox2.Location = new System.Drawing.Point(6, 19);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(477, 148);
             this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "Aqui vão aparecer os resultados das iterações";
             // 
             // Form1
             // 
