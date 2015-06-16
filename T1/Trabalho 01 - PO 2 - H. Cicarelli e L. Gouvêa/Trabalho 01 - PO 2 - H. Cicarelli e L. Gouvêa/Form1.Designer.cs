@@ -37,20 +37,21 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxDelta = new System.Windows.Forms.TextBox();
+            this.textBoxEpsilon = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxL = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxB = new System.Windows.Forms.TextBox();
+            this.textBoxA = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxFuncao = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxResultado = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxA = new System.Windows.Forms.TextBox();
-            this.textBoxB = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxL = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxEpsilon = new System.Windows.Forms.TextBox();
-            this.textBoxDelta = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.buttonCalc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -145,6 +146,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonCalc);
             this.groupBox2.Controls.Add(this.textBoxDelta);
             this.groupBox2.Controls.Add(this.textBoxEpsilon);
             this.groupBox2.Controls.Add(this.label5);
@@ -164,6 +166,78 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Função";
             // 
+            // textBoxDelta
+            // 
+            this.textBoxDelta.Location = new System.Drawing.Point(253, 46);
+            this.textBoxDelta.Name = "textBoxDelta";
+            this.textBoxDelta.Size = new System.Drawing.Size(30, 20);
+            this.textBoxDelta.TabIndex = 10;
+            // 
+            // textBoxEpsilon
+            // 
+            this.textBoxEpsilon.Location = new System.Drawing.Point(200, 46);
+            this.textBoxEpsilon.Name = "textBoxEpsilon";
+            this.textBoxEpsilon.Size = new System.Drawing.Size(30, 20);
+            this.textBoxEpsilon.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label5.Location = new System.Drawing.Point(182, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(23, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "e = ";
+            // 
+            // textBoxL
+            // 
+            this.textBoxL.Location = new System.Drawing.Point(152, 46);
+            this.textBoxL.Name = "textBoxL";
+            this.textBoxL.Size = new System.Drawing.Size(30, 20);
+            this.textBoxL.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(136, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "l = ";
+            // 
+            // textBoxB
+            // 
+            this.textBoxB.Location = new System.Drawing.Point(103, 46);
+            this.textBoxB.Name = "textBoxB";
+            this.textBoxB.Size = new System.Drawing.Size(30, 20);
+            this.textBoxB.TabIndex = 5;
+            // 
+            // textBoxA
+            // 
+            this.textBoxA.Location = new System.Drawing.Point(48, 46);
+            this.textBoxA.Name = "textBoxA";
+            this.textBoxA.Size = new System.Drawing.Size(30, 20);
+            this.textBoxA.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(81, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "b = ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "a = ";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -179,6 +253,16 @@
             this.textBoxFuncao.Name = "textBoxFuncao";
             this.textBoxFuncao.Size = new System.Drawing.Size(256, 20);
             this.textBoxFuncao.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label6.Location = new System.Drawing.Point(232, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "D = ";
             // 
             // groupBox3
             // 
@@ -202,87 +286,15 @@
             this.textBoxResultado.TabIndex = 0;
             this.textBoxResultado.Text = "Aqui vão aparecer os resultados das iterações";
             // 
-            // label2
+            // buttonCalc
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "a = ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "b = ";
-            // 
-            // textBoxA
-            // 
-            this.textBoxA.Location = new System.Drawing.Point(48, 46);
-            this.textBoxA.Name = "textBoxA";
-            this.textBoxA.Size = new System.Drawing.Size(30, 20);
-            this.textBoxA.TabIndex = 4;
-            // 
-            // textBoxB
-            // 
-            this.textBoxB.Location = new System.Drawing.Point(103, 46);
-            this.textBoxB.Name = "textBoxB";
-            this.textBoxB.Size = new System.Drawing.Size(30, 20);
-            this.textBoxB.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(136, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "l = ";
-            // 
-            // textBoxL
-            // 
-            this.textBoxL.Location = new System.Drawing.Point(152, 46);
-            this.textBoxL.Name = "textBoxL";
-            this.textBoxL.Size = new System.Drawing.Size(30, 20);
-            this.textBoxL.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label5.Location = new System.Drawing.Point(182, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "e = ";
-            // 
-            // textBoxEpsilon
-            // 
-            this.textBoxEpsilon.Location = new System.Drawing.Point(200, 46);
-            this.textBoxEpsilon.Name = "textBoxEpsilon";
-            this.textBoxEpsilon.Size = new System.Drawing.Size(30, 20);
-            this.textBoxEpsilon.TabIndex = 9;
-            // 
-            // textBoxDelta
-            // 
-            this.textBoxDelta.Location = new System.Drawing.Point(253, 46);
-            this.textBoxDelta.Name = "textBoxDelta";
-            this.textBoxDelta.Size = new System.Drawing.Size(30, 20);
-            this.textBoxDelta.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label6.Location = new System.Drawing.Point(232, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "D = ";
+            this.buttonCalc.Location = new System.Drawing.Point(15, 82);
+            this.buttonCalc.Name = "buttonCalc";
+            this.buttonCalc.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalc.TabIndex = 12;
+            this.buttonCalc.Text = "Calcular";
+            this.buttonCalc.UseVisualStyleBackColor = true;
+            this.buttonCalc.Click += new System.EventHandler(this.buttonCalc_Click);
             // 
             // Form1
             // 
@@ -331,6 +343,7 @@
         private System.Windows.Forms.TextBox textBoxL;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonCalc;
     }
 }
 

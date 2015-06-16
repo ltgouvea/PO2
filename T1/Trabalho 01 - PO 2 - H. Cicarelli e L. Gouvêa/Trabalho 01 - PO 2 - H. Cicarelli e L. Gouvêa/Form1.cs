@@ -12,11 +12,40 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
     public partial class Form1 : Form
     {
         int metodo = -1;
+        string F;
+        double a, b, l, epsilon, delta;
+        MathParser m = new MathParser();
         public Form1()
         {
             InitializeComponent();
-            MathParser m = new MathParser();
+            
             //Temos que aprender a usar as paradinhas do parser, tem documentação na pasta acho
+        }
+
+        //Função pra verificar entrada de dados: O parser não aceita coisas como x² ou 3x representando produto, sempre tem que usar * ou ^ como sinais
+        public bool Verifica()
+        {
+            
+            try
+            {
+                m.Expression = textBoxFuncao.Text;
+                m.Parse();
+                a = Convert.ToDouble(textBoxA.Text);
+                b = Convert.ToDouble(textBoxB.Text);
+                l = Convert.ToDouble(textBoxL.Text);
+                epsilon = Convert.ToDouble(textBoxEpsilon.Text);
+                delta = Convert.ToDouble(textBoxDelta.Text);
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro na entrada de dados: " + e.Message);
+                return false;
+                
+            }
+            return true;
+                
         }
         
         //Escolha do método pelos radioButtons
@@ -116,6 +145,20 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         public void Newton()
         {
 
+        }
+
+        //Botão de calcular
+        private void buttonCalc_Click(object sender, EventArgs e)
+        {
+            if (Verifica() == true)
+            {
+                //Aplicar o método escolhido
+            }
+            else
+            {
+                MessageBox.Show("Erro na entrada de dados");
+               textBoxA.Focus;
+            }
         }
         //Fim - Método de Newton
         
