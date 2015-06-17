@@ -92,14 +92,14 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         public void BuscaUniforme()
         {
-            double fAntigo, xDescarte;
+            double fAntigo, xDescarte = 0;
             k = 0;
             m.X = a;
             fAntigo = m.ValueAsDouble;
             bool achou = false;
-           
 
-            do
+
+            while ((achou == false) && ((b - a) > l))
             {
                 
                 a += delta;
@@ -108,11 +108,11 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
                 if (fx > fAntigo)
                 {
-                    xDescarte = Convert.ToDouble(m.X);
+                    //xDescarte = Convert.ToDouble(m.X);
                     a -= delta;
                     m.X = a;
                     delta /= 10;                     
-                    while (Convert.ToDouble(m.X) < xDescarte)
+                    while (fAntigo < fx)
                     {
                         k++;
                         fAntigo = m.ValueAsDouble;
@@ -122,8 +122,9 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                         textBoxResultado.AppendText("\r\n K =" + Convert.ToString(k) + "A: " + Convert.ToString(a) + " F(x): " + m.ValueAsString);
                         if (fx > fAntigo)
                         {
-                            minimo = fAntigo;
+                            minimo = Convert.ToDouble(m.X);
                             achou = true;
+                            break;
                         }
                     }
                 }
@@ -134,7 +135,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 }
                 
 
-            } while ((achou == false) && ((b - a) > l));
+            }
 
            
 
@@ -235,6 +236,19 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             {
                 MessageBox.Show("Erro na entrada de dados");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ///Limpar campos
+            textBoxA.Clear();
+            textBoxB.Clear();
+            textBoxDelta.Clear();
+            textBoxEpsilon.Clear();
+            textBoxL.Clear();
+            textBoxResultado.Clear();
+            textBoxFuncao.Clear();
+            
         }
         //Fim - Método de Newton
         
