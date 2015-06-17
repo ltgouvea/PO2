@@ -136,6 +136,60 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             
 
         }
+
+        //FIM - Derivada primeira
+        //Derivada segunda
+
+        public double DerivadaSegunda(double x)
+        {
+            double fx, fxmaish, fxmenosh;
+            double h = 0.25;
+
+            double derivada;
+
+            while (h > epsilon)
+            {
+
+
+                //f(x)
+                m.X = x;
+                fx = m.ValueAsDouble;
+
+                //f(x+h)
+                a += (2*h);
+                m.X = a;
+                fxmaish = m.ValueAsDouble;
+
+                //f(x - h) 
+                a -= (4 * h);
+                m.X = a;
+                fxmenosh = m.ValueAsDouble;
+
+                derivada = (fxmaish - fxmenosh) / (4 * h * h);
+
+                if (derivada <= epsilon)
+                {
+                    return (derivada);
+                }
+                else
+                {
+                    h /= 2;
+                    k++;
+                }
+
+                if (k == 100)
+                {
+                    return (derivada);
+                }
+
+            }//Fim do loop
+
+            return -1;
+
+
+        }
+
+
         
         //Busca Uniforme 
         /// <summary>
@@ -188,6 +242,11 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                     k++;
                     textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) + "|  Delta =  " + Convert.ToString(delta) + "| A =   " + Convert.ToString(a) + "|  F(x)=  " + m.ValueAsString);
                 }
+
+                if(k == 200)
+                {
+                    break;
+                }
                 
 
             }
@@ -207,7 +266,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         //Bisseção
         /// <summary>
-        /// Derivada socorro
+        /// Bisseção : aparentemente OK
         /// </summary>
 
         public void Bissecao()
@@ -353,7 +412,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         //Fibonacci
         /// <summary>
-        /// Colocar informações do método aqui
+        /// Fibonacci : estoura o vetor às vezes
         /// </summary>
         
         public void BuscaFibonacci()
@@ -381,7 +440,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
             u = a + (F[i - k - 2] / F[i - k]) * (b - a);
             lambda = a + (F[i - k - 1] / F[i - k])  * (b - a);
-            while ((b-a) > l)
+            while (((b-a) > l) || ((i-k) > 1))
 	        {   
 	            k++;
                 m.X = u;
@@ -401,7 +460,15 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 {
                     b = lambda;
                     lambda = u;
-                    u = a + (F[i - k - 2] / F[i - k]) * (b - a);
+                    if ((i- k - 2) >= 0)
+                    {
+                        u = a + (F[i - k - 2] / F[i - k]) * (b - a);
+                    }
+                    else 
+                    {
+                        break;
+                    }
+                      
                 }
 
                 if (k == 100)
@@ -419,13 +486,50 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         //Newton
         /// <summary>
-        /// Colocar informações do método aqui
+        /// Algoritmo:
+        /// dados: função, ponto inicial (padrão: a + b / 2), erro
+        /// x[k+1] = x[k] - derivadaprimeira / derivadasegunda
         /// </summary>
          
         public void Newton()
         {
             textBoxResultado.Clear();
-            MessageBox.Show("Método ainda não implementado");
+            double x, derivada_prim, derivada_seg;
+            double xnovo;
+            x = (a + b) / 2;
+            m.X = x;
+            xnovo = 0;
+
+            derivada_prim = DerivadaPrimeira(x);
+            derivada_seg = DerivadaSegunda(x);
+
+            while (Math.Abs(DerivadaPrimeira(x)) > epsilon)
+            {
+                k++;
+                xnovo = x - (DerivadaPrimeira(x) / DerivadaSegunda(x));
+                x = xnovo;
+                textBoxResultado.AppendText("\r\n| x = " + Convert.ToString(x) + " | F'(x)" + Convert.ToString(DerivadaPrimeira(x)) +
+                                            " | F''(x) = " + Convert.ToString(DerivadaSegunda(x)));
+                if (DerivadaPrimeira(x) == 0)
+                {
+                    break;
+                }
+                if (k >= 100)
+                {
+                    break;
+                }
+
+                if (Math.Abs(DerivadaPrimeira(x)) < epsilon)
+                {
+                    break;
+                }
+
+            }
+            
+            textBoxResultado.AppendText("\r\n | X* = " + Convert.ToString(xnovo) + " |   F(x) = " + Convert.ToString(m.ValueAsDouble) +
+                "| F'(x) =  " + Convert.ToString(DerivadaPrimeira(xnovo)) );
+
+            
         }
 
         //Botão de calcular
