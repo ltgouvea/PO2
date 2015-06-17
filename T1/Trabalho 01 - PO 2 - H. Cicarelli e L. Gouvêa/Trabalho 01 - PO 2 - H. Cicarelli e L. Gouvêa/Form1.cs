@@ -92,7 +92,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         public void BuscaUniforme()
         {
-            double fAntigo, xDescarte,fx = 0;
+            double fAntigo, fx, q = 0;
             k = 0;
             m.X = a;
             fAntigo = m.ValueAsDouble;
@@ -106,20 +106,21 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 m.X = a;
                 fx = m.ValueAsDouble;
 
+                //Refinamento
                 if (fx > fAntigo)
                 {
                     //xDescarte = Convert.ToDouble(m.X);
-                    a -= delta;
+                    a -= (2*delta);
                     m.X = a;
-                    delta /= 10;                     
+                    q = delta / 10;                     
                     while (fAntigo < fx)
                     {
                         k++;
                         fAntigo = m.ValueAsDouble;
-                        a += delta;
+                        a += q;
                         m.X = a;
                         fx = m.ValueAsDouble;
-                        textBoxResultado.AppendText("\r\n K =" + Convert.ToString(k) + "A: " + Convert.ToString(a) + " F(x): " + m.ValueAsString);
+                        textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) +"|  Q =  " + Convert.ToString(q) +  "| A =   " + Convert.ToString(a) + "|  F(x)=  " + m.ValueAsString);
                         if (fx > fAntigo)
                         {
                             minimo = Convert.ToDouble(m.X);
@@ -131,7 +132,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 else
                 {
                     k++;
-                    textBoxResultado.AppendText("\r\n K =" + Convert.ToString(k) +"A: "+ Convert.ToString(a) + " F(x): " + m.ValueAsString);
+                    textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) + "|  Delta =  " + Convert.ToString(delta) + "| A =   " + Convert.ToString(a) + "|  F(x)=  " + m.ValueAsString);
                 }
                 
 
@@ -162,12 +163,51 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         //Fim - Bisseção
 
         //Seção Áurea
-        /// <summary>
-        /// Colocar informações do método aqui
+        /// <summary> SEÇÃO ÁUREA
+        /// alpha = 0,618
+        /// beta = 0,382
+        /// 
         /// </summary>
         
         public void SecaoAurea()
         {
+            double beta = 0.382;
+            double alpha = 0.618;
+
+            u = a + beta * (b - a);
+            lambda = a + alpha * (b - a);
+
+            while ((b-a) > l)
+            {
+                k++;
+                m.X = u;
+                fu = m.ValueAsDouble;
+                m.X = lambda;
+                flambda = m.ValueAsDouble;
+                
+                textBoxResultado.AppendText("\r\n| K = " + Convert.ToString(k) + "| u = " + Convert.ToString(u) + "| lambda = " + Convert.ToString(lambda) + "| f(u) = " + Convert.ToString(fu) +"| f(lambda) = " + Convert.ToString(flambda));
+                if (fu > flambda)
+                {
+                    a = u;
+                    u = lambda;
+                    lambda = a + alpha * (b - a);
+                }
+
+                if (flambda > fu)
+                {
+                    b = lambda;
+                    lambda = u;
+                    u = a + beta*(b - a);
+                }
+
+                if (k == 100)
+                {
+                    break;
+                }
+            }
+
+            x = (a + b) / 2;
+            textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
 
         }
         //Fim - Seção Áurea
