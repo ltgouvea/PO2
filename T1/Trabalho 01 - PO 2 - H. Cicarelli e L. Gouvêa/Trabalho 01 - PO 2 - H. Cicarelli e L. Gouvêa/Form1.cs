@@ -15,7 +15,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         int metodo = -1;
         int k;
         string F;
-        double a, b, l, epsilon, delta, x, fx, u, fu, lambda, flambda, minimo;
+        double a, b, l, epsilon, delta, x, u, fu, lambda, flambda, minimo;
         MathParser m = new MathParser();
         public Form1()
         {
@@ -92,7 +92,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         public void BuscaUniforme()
         {
-            double fAntigo, xDescarte = 0;
+            double fAntigo, xDescarte,fx = 0;
             k = 0;
             m.X = a;
             fAntigo = m.ValueAsDouble;
@@ -174,11 +174,53 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         //Busca Dicotômica
         /// <summary>
-        /// Colocar informações do método aqui
+        /// busca Dicotômica
+        /// x = (a+b)/2 - epsilon 
+        /// z = (a+b)/2 + epsilon
+        /// se f(x) > f(z)
+        /// a = x
+        /// senão
+        /// b = z
         /// </summary>
         
         public void Dicotomica()
         {
+            double Fx, Fz,x, z;
+            k = 0;
+            //Inicializando variáveis
+            while ((b-a) >= l)
+            {
+                k++;
+                x = ((a + b) / 2) - epsilon;
+                z = ((a + b) / 2) + epsilon;
+                m.X = x;
+                Fx = m.ValueAsDouble;
+                m.X = z;
+                Fz = m.ValueAsDouble;
+                if (Fx > Fz)
+                {
+                    a = x;
+                }
+                else
+                {
+                    b = z;
+                }
+                if ((b - a) <= l)
+                {
+                    break;
+                }
+                textBoxResultado.AppendText("\r\n | k = " + Convert.ToString(k) + "| x = " + Convert.ToString(x) + "| z = " + Convert.ToString(z) +
+                                            "| F(x) = " + Convert.ToString(Fx) + " | F(z) = " + Convert.ToString(Fz));
+                if (k == 1000)
+                {
+                    break;
+                }
+
+            }
+
+            x = (a + b)/2;
+            textBoxResultado.AppendText("\r\n X* = " + Convert.ToString(x));
+
 
         }
         //Fim - Busca Dicotômica
