@@ -92,6 +92,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         public void BuscaUniforme()
         {
+            textBoxResultado.Clear();
             double fAntigo, fx, q = 0;
             k = 0;
             m.X = a;
@@ -158,6 +159,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         public void Bissecao()
         {
+            textBoxResultado.Clear();
+            MessageBox.Show("Método ainda não implementado");
 
         }
         //Fim - Bisseção
@@ -171,6 +174,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         
         public void SecaoAurea()
         {
+            textBoxResultado.Clear();
             double beta = 0.382;
             double alpha = 0.618;
 
@@ -225,6 +229,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         
         public void Dicotomica()
         {
+            textBoxResultado.Clear();
             double Fx, Fz,x, z;
             k = 0;
             //Inicializando variáveis
@@ -272,6 +277,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         
         public void BuscaFibonacci()
         {
+            textBoxResultado.Clear();
             double[] F;
             double Fn;
             F = new double[100];
@@ -337,7 +343,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
          
         public void Newton()
         {
-
+            textBoxResultado.Clear();
+            MessageBox.Show("Método ainda não implementado");
         }
 
         //Botão de calcular

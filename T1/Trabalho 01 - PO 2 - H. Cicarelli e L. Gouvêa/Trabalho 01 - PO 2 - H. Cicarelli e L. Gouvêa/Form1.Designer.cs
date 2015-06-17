@@ -37,6 +37,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonCalc = new System.Windows.Forms.Button();
             this.textBoxDelta = new System.Windows.Forms.TextBox();
             this.textBoxEpsilon = new System.Windows.Forms.TextBox();
@@ -52,7 +53,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxResultado = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -147,6 +148,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.buttonCalc);
             this.groupBox2.Controls.Add(this.textBoxDelta);
@@ -168,9 +170,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Função";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(147, 88);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Limpar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // buttonCalc
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(48, 88);
+            this.buttonCalc.Location = new System.Drawing.Point(83, 88);
             this.buttonCalc.Name = "buttonCalc";
             this.buttonCalc.Size = new System.Drawing.Size(58, 23);
             this.buttonCalc.TabIndex = 12;
@@ -263,7 +275,7 @@
             // 
             this.textBoxFuncao.Location = new System.Drawing.Point(48, 19);
             this.textBoxFuncao.Name = "textBoxFuncao";
-            this.textBoxFuncao.Size = new System.Drawing.Size(256, 20);
+            this.textBoxFuncao.Size = new System.Drawing.Size(235, 20);
             this.textBoxFuncao.TabIndex = 0;
             // 
             // label6
@@ -298,15 +310,14 @@
             this.textBoxResultado.TabIndex = 0;
             this.textBoxResultado.Text = "Aqui vão aparecer os resultados das iterações";
             // 
-            // button1
+            // label7
             // 
-            this.button1.Location = new System.Drawing.Point(112, 88);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Limpar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(263, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Atenção: Use VÍRGULAS pra separar casas decimais.";
             // 
             // Form1
             // 
@@ -320,6 +331,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Otimização monovariável na reta";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -357,6 +369,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonCalc;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
     }
 }
 
