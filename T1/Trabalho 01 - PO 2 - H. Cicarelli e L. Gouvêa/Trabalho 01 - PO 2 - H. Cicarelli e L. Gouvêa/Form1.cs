@@ -153,7 +153,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         //Bisseção
         /// <summary>
-        /// Colocar informações do método aqui
+        /// Derivada socorro
         /// </summary>
 
         public void Bissecao()
@@ -272,9 +272,63 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         
         public void BuscaFibonacci()
         {
+            double[] F;
+            double Fn;
+            F = new double[100];
+            F[0] = 1;
+            F[1] = 1;
+            int i;
+            
+            Fn = (b-a) / l;
 
-        }
+
+            for (i = 2; i < 1000; i++)
+			{
+			    F[i] = F[i-1] + F[i-2];
+                if ((F[i] > Fn) || i == 1000)
+                {
+                    
+                    break;
+                }
+			}
+
+            u = a + (F[i - k - 2] / F[i - k]) * (b - a);
+            lambda = a + (F[i - k - 1] / F[i - k])  * (b - a);
+            while ((b-a) > l)
+	        {   
+	            k++;
+                m.X = u;
+                fu = m.ValueAsDouble;
+                m.X = lambda;
+                flambda = m.ValueAsDouble;
+                
+                textBoxResultado.AppendText("\r\n| K = " + Convert.ToString(k) + "| u = " + Convert.ToString(u) + "| lambda = " + Convert.ToString(lambda) + "| f(u) = " + Convert.ToString(fu) +"| f(lambda) = " + Convert.ToString(flambda));
+                if (fu > flambda)
+                {
+                    a = u;
+                    u = lambda;
+                    lambda = a + (F[i - k - 1] / F[i - k]) * (b - a);
+                }
+
+                if (flambda > fu)
+                {
+                    b = lambda;
+                    lambda = u;
+                    u = a + (F[i - k - 2] / F[i - k]) * (b - a);
+                }
+
+                if (k == 100)
+                {
+                    break;
+                }   
+	        }
+
+            x = (a + b) / 2;
+            textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
+
+        }        
         //Fim - Fibonacci
+
 
         //Newton
         /// <summary>
