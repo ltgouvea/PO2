@@ -83,6 +83,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="brilhando.png" />
     <Content Include="Mathematical_symbols_in_four_squares_32.ico" />
     <Content Include="Mathematical_symbols_in_four_squares_64.ico" />
   </ItemGroup>

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 {
@@ -83,6 +84,58 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         //Fim da escolha dos métodos
 
         //Métodos propriamente ditos
+
+        ///CALCULO DE DERIVADAS
+        ///DERIVADA PRIMEIRA
+       
+        public double DerivadaPrimeira(double x)
+        {
+            double fx, fxmaish, fxmenosh;
+            double h = 0.25;
+
+            double derivada;
+
+            while (h > epsilon)
+            {
+
+            
+                //f(x)
+                m.X = x;
+                fx = m.ValueAsDouble;
+
+                //f(x+h)
+                a += h;
+                m.X = a;
+                fxmaish = m.ValueAsDouble;
+
+                //f(x - h) 
+                a -= (2 * h);
+                m.X = a;
+                fxmenosh = m.ValueAsDouble;
+
+                derivada = (fxmaish - fxmenosh) / (2 * h);
+
+                if (derivada <= epsilon)
+                {
+                    return (derivada);
+                }
+                else
+                {
+                    h /= 2;
+                    k++;
+                }
+
+                if (k == 100)
+                {
+                    return (derivada);
+                }
+
+                }//Fim do loop
+
+            return -1;
+            
+
+        }
         
         //Busca Uniforme 
         /// <summary>
@@ -160,7 +213,35 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         public void Bissecao()
         {
             textBoxResultado.Clear();
-            MessageBox.Show("Método ainda não implementado");
+
+            while ((b - a) > l)
+            {
+                k++;
+                x = (a + b) / 2;
+                double dfdx = DerivadaPrimeira(x);
+                if (dfdx > 0)
+                {
+                    b = x;
+                }
+                if (dfdx < 0)
+                {
+                    a = x;
+                }
+                if (dfdx == 0)
+                {
+                    textBoxResultado.AppendText("| K = " + Convert.ToString(k) + " | a = " + Convert.ToString(a) + " | b" + Convert.ToString(b) +
+                                                " | x = " + Convert.ToString(x));
+                    break;
+                }
+                if (k == 500)
+                {
+                    break;
+                }
+
+                
+            }
+            textBoxResultado.AppendText("| K = " + Convert.ToString(k) + " | a = " + Convert.ToString(a) + " | b" + Convert.ToString(b) +
+                                        " | x = " + Convert.ToString(x));
 
         }
         //Fim - Bisseção
@@ -393,6 +474,13 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             textBoxFuncao.Clear();
             
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("\tPrograma desenvolvido por:\r\n\tLucas T. A. Gouvêa\r\n\te\r\n\tHugo Cicarelli\r\n\tUNESP Bauru, 2015");
+        }
+
+        
         //Fim - Método de Newton
         
         //Fim dos métodos
