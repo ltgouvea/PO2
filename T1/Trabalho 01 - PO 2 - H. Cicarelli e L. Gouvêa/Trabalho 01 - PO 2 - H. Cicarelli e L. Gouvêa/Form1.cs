@@ -86,7 +86,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         
         //Busca Uniforme 
         /// <summary>
-        /// Colocar informações do método aqui
+        /// fAntigo = valor da função da iteração anterior (f(a - delta))
+        /// xDescarte = ponto pra marcar o refinamento
         /// </summary>
 
         public void BuscaUniforme()
@@ -95,10 +96,12 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             k = 0;
             m.X = a;
             fAntigo = m.ValueAsDouble;
+            bool achou = false;
            
 
             do
             {
+                
                 a += delta;
                 m.X = a;
                 fx = m.ValueAsDouble;
@@ -108,7 +111,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                     xDescarte = Convert.ToDouble(m.X);
                     a -= delta;
                     m.X = a;
-                    delta = delta / 10;                     
+                    delta /= 10;                     
                     while (Convert.ToDouble(m.X) < xDescarte)
                     {
                         k++;
@@ -116,23 +119,26 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                         a += delta;
                         m.X = a;
                         fx = m.ValueAsDouble;
+                        textBoxResultado.AppendText("\r\n K =" + Convert.ToString(k) + "A: " + Convert.ToString(a) + " F(x): " + m.ValueAsString);
                         if (fx > fAntigo)
                         {
                             minimo = fAntigo;
-                            break;
+                            achou = true;
                         }
                     }
                 }
                 else
                 {
                     k++;
-                    textBoxResultado.AppendText("\r\n K =" + Convert.ToString(k) +"A: "+ Convert.ToString(a) + " minimo: " + Convert.ToString(minimo));
+                    textBoxResultado.AppendText("\r\n K =" + Convert.ToString(k) +"A: "+ Convert.ToString(a) + " F(x): " + m.ValueAsString);
                 }
-                minimo = fAntigo;
+                
 
-            } while (fx < fAntigo);
+            } while ((achou == false) && ((b - a) > l));
 
+           
 
+            minimo = fAntigo;
             
 
 
