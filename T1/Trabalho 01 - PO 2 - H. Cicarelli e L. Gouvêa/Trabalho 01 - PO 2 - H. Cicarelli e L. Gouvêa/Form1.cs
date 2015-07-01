@@ -104,13 +104,13 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 fx = m.ValueAsDouble;
 
                 //f(x+h)
-                a += h;
-                m.X = a;
+                x += h;
+                m.X = x;
                 fxmaish = m.ValueAsDouble;
 
                 //f(x - h) 
-                a -= (2 * h);
-                m.X = a;
+                x -= (2 * h);
+                m.X = x;
                 fxmenosh = m.ValueAsDouble;
 
                 derivada = (fxmaish - fxmenosh) / (2 * h);
@@ -155,17 +155,17 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 m.X = x;
                 fx = m.ValueAsDouble;
 
-                //f(x+h)
-                a += (2*h);
+                //f(x+2h)
+                x += (2*h);
                 m.X = a;
                 fxmaish = m.ValueAsDouble;
 
-                //f(x - h) 
-                a -= (4 * h);
-                m.X = a;
+                //f(x - 2h) 
+                x -= 4*h;
+                
                 fxmenosh = m.ValueAsDouble;
 
-                derivada = (fxmaish - fxmenosh) / (4 * h * h);
+                derivada = ((fxmaish + fxmenosh) - (2*fx)) / (4 * h * h);
 
                 if (derivada <= epsilon)
                 {
@@ -216,8 +216,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
                 //Refinamento
                 if (fx > fAntigo)
-                {
-                    //xDescarte = Convert.ToDouble(m.X);
+                {                    
                     a -= (2*delta);
                     m.X = a;
                     q = delta / 10;                     
@@ -420,27 +419,35 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             textBoxResultado.Clear();
             double[] F;
             double Fn;
-            F = new double[100];
+            F = new double[110];
             F[0] = 1;
             F[1] = 1;
-            int i;
+            int i, j;
             
             Fn = (b-a) / l;
-
+            j = 0;
 
             for (i = 2; i < 1000; i++)
 			{
 			    F[i] = F[i-1] + F[i-2];
                 if ((F[i] > Fn) || i == 1000)
                 {
-                    
+                    j++;
                     break;
                 }
 			}
-
-            u = a + (F[i - k - 2] / F[i - k]) * (b - a);
-            lambda = a + (F[i - k - 1] / F[i - k])  * (b - a);
-            while (((b-a) > l) || ((i-k) > 1))
+            try
+            {
+                u = a + (F[j - k - 2] / F[j - k]) * (b - a);
+                lambda = a + (F[j - k - 1] / F[j - k]) * (b - a);
+            }
+               catch (System.IndexOutOfRangeException e)
+            {
+                x = (a + b) / 2;
+                textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
+                return;
+            }
+            while (((b-a) > l) && ((j-k) > 1))
 	        {   
 	            k++;
                 m.X = u;
@@ -449,34 +456,32 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 flambda = m.ValueAsDouble;
                 
                 textBoxResultado.AppendText("\r\n| K = " + Convert.ToString(k) + "| u = " + Convert.ToString(u) + "| lambda = " + Convert.ToString(lambda) + "| f(u) = " + Convert.ToString(fu) +"| f(lambda) = " + Convert.ToString(flambda));
+                if ((i-k) == 0)
+                {
+                    return;
+                }
                 if (fu > flambda)
                 {
                     a = u;
                     u = lambda;
-                    lambda = a + (F[i - k - 1] / F[i - k]) * (b - a);
+                    lambda = a + (F[j - k - 1] / F[j - k]) * (b - a);
                 }
 
                 if (flambda > fu)
                 {
                     b = lambda;
                     lambda = u;
-                    if ((i- k - 2) >= 0)
-                    {
-                        u = a + (F[i - k - 2] / F[i - k]) * (b - a);
-                    }
-                    else 
-                    {
-                        break;
-                    }
+                    u = a + (F[j - k - 2] / F[j - k]) * (b - a);        
+                    
                       
                 }
 
-                if (k == 100)
+                if ((k == 100) ||((i-k) == 0))
                 {
-                    break;
+                    return;
                 }   
 	        }
-
+            
             x = (a + b) / 2;
             textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
 
@@ -506,11 +511,11 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             while (Math.Abs(DerivadaPrimeira(x)) > epsilon)
             {
                 k++;
-                xnovo = x - (DerivadaPrimeira(x) / DerivadaSegunda(x));
+                xnovo = (x - (DerivadaPrimeira(x) / DerivadaSegunda(x)));
                 x = xnovo;
-                textBoxResultado.AppendText("\r\n| x = " + Convert.ToString(x) + " | F'(x)" + Convert.ToString(DerivadaPrimeira(x)) +
-                                            " | F''(x) = " + Convert.ToString(DerivadaSegunda(x)));
-                if (DerivadaPrimeira(x) == 0)
+                textBoxResultado.AppendText("\r\n| x = " + Convert.ToString(x) + " | F'(x)" + Convert.ToString(derivada_prim) +
+                                            " | F''(x) = " + Convert.ToString(derivada_seg));
+                if (derivada_prim == 0)
                 {
                     break;
                 }
@@ -519,7 +524,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                     break;
                 }
 
-                if (Math.Abs(DerivadaPrimeira(x)) < epsilon)
+                if (Math.Abs(derivada_prim) < epsilon)
                 {
                     break;
                 }
