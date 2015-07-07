@@ -37,6 +37,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCalc = new System.Windows.Forms.Button();
             this.textBoxDelta = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxResultado = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -171,6 +171,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Função";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(263, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Atenção: Use VÍRGULAS pra separar casas decimais.";
             // 
             // button1
             // 
@@ -308,18 +317,9 @@
             this.textBoxResultado.Multiline = true;
             this.textBoxResultado.Name = "textBoxResultado";
             this.textBoxResultado.ReadOnly = true;
-            this.textBoxResultado.Size = new System.Drawing.Size(679, 148);
+            this.textBoxResultado.Size = new System.Drawing.Size(673, 148);
             this.textBoxResultado.TabIndex = 0;
             this.textBoxResultado.Text = "Aqui vão aparecer os resultados das iterações";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 134);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(263, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Atenção: Use VÍRGULAS pra separar casas decimais.";
             // 
             // pictureBox1
             // 
@@ -331,7 +331,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-
             // 
             // Form1
             // 

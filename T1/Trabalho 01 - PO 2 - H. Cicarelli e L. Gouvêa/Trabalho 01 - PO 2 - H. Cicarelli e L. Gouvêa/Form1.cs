@@ -209,14 +209,15 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
             while ((achou == false) && ((b - a) > l))
             {
-                
+                fAntigo = m.ValueAsDouble;
                 a += delta;
                 m.X = a;
                 fx = m.ValueAsDouble;
 
                 //Refinamento
                 if (fx > fAntigo)
-                {                    
+                {
+                    fAntigo = m.ValueAsDouble;
                     a -= (2*delta);
                     m.X = a;
                     q = delta / 10;                     
@@ -232,7 +233,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                         {
                             minimo = Convert.ToDouble(m.X);
                             achou = true;
-                            break;
+                            return;
                         }
                     }
                 }
@@ -240,6 +241,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 {
                     k++;
                     textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) + "|  Delta =  " + Convert.ToString(delta) + "| A =   " + Convert.ToString(a) + "|  F(x)=  " + m.ValueAsString);
+        
                 }
 
                 if(k == 200)
@@ -343,7 +345,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                     u = a + beta*(b - a);
                 }
 
-                if (k == 100)
+                if (k >= 100)
                 {
                     break;
                 }
@@ -508,10 +510,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             derivada_prim = DerivadaPrimeira(x);
             derivada_seg = DerivadaSegunda(x);
 
-            while (Math.Abs(DerivadaPrimeira(x)) > epsilon)
+            while (Math.Abs(derivada_prim) > epsilon)
             {
                 k++;
-                xnovo = (x - (DerivadaPrimeira(x) / DerivadaSegunda(x)));
+                xnovo = (x - (derivada_prim / derivada_seg));
                 x = xnovo;
                 textBoxResultado.AppendText("\r\n| x = " + Convert.ToString(x) + " | F'(x)" + Convert.ToString(derivada_prim) +
                                             " | F''(x) = " + Convert.ToString(derivada_seg));
