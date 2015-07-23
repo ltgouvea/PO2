@@ -81,6 +81,32 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         {
             metodo = 6;
         }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            metodo = 7;
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            metodo = 8;
+        }
+
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        {
+            metodo = 9;
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        {
+            metodo = 10;
+        }
+
+        private void radioButton11_CheckedChanged(object sender, EventArgs e)
+        {
+            metodo = 11;
+        }
+
         //Fim da escolha dos métodos
 
         //Métodos propriamente ditos
@@ -444,7 +470,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 lambda = a + (F[j - k - 1] / F[j - k]) * (b - a);
             }
                catch (System.IndexOutOfRangeException e)
-            {
+            {                
                 x = (a + b) / 2;
                 textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
                 return;
@@ -539,7 +565,38 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             
         }
 
+        //FIM DOS MÉTODOS PARA MONOVARIÁVEIS
+        //Início dos métodos para multivariáveis
+        //7 - Hooke and Jeeves
+        //8 - Newton
+        //9 - Gradiente
+        //10 - Fletcher Reeves
+        //11 - Davidon Fletcher Powell
         //Botão de calcular
+
+        public void HookeAndJeeves ()
+        {
+            MessageBox.Show("Método ainda não implementado");
+        }
+        public void NewtonMultivar ()
+        {
+            MessageBox.Show("Método ainda não implementado");
+        }
+        public void Gradiente () 
+        {
+            MessageBox.Show("Método ainda não implementado");
+        }
+        public void FletcherReeves ()
+        {
+            MessageBox.Show("Método ainda não implementado");
+        }
+        public void DFPowell ()
+        {
+            MessageBox.Show("Método ainda não implementado");
+        }
+
+//Fim dos métodos propriamente ditos
+
         private void buttonCalc_Click(object sender, EventArgs e)
         {
             if (Verifica() == true)
@@ -564,6 +621,21 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                         break;
                     case 6:
                         Newton();
+                        break;
+                    case 7:
+                        HookeAndJeeves();
+                        break;
+                    case 8:
+                        NewtonMultivar();
+                        break;
+                    case 9:
+                        Gradiente();
+                        break;
+                    case 10:
+                        FletcherReeves();
+                        break;
+                    case 11:
+                        DFPowell();
                         break;
                 }
             }
@@ -592,7 +664,29 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         }
 
         
-        //Fim - Método de Newton
+        
+
+        
+
+        
+        
+
+        
+
+        
+        
+
+        
+
+        
+        
+
+        
+
+        
+        
+
+        
         
         //Fim dos métodos
     }
