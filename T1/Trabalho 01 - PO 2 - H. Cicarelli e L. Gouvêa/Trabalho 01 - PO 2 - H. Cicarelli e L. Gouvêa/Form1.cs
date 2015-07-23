@@ -17,6 +17,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         int k;
         string F;
         double a, b, l, epsilon, delta, x, u, fu, lambda, flambda, minimo;
+        double[] x_Zero;
         MathParser m = new MathParser();
         public Form1()
         {
@@ -47,6 +48,22 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 return false;
                 
             }
+
+            /// PARA AS MULTIVARIÁVEIS
+            if (metodo > 6)
+            {
+                try
+                {
+                    x_Zero[0] = Convert.ToDouble(textBox1.Text);
+                    x_Zero[1] = Convert.ToDouble(textBox2.Text);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Erro na entradada de dados.");
+                    throw;
+                }
+
+            }
             return true;
                 
         }
@@ -55,56 +72,78 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 1;
+            textBox1.Enabled = false;
+            textBox2.Enabled =false;   
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 2;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;   
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 3;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;   
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 4;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;   
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 5;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;   
         }
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 6;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
         }
 
         private void radioButton7_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 7;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
         }
 
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 8;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
         }
 
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 9;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
         }
 
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 10;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
         }
 
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
             metodo = 11;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
         }
 
         //Fim da escolha dos métodos
