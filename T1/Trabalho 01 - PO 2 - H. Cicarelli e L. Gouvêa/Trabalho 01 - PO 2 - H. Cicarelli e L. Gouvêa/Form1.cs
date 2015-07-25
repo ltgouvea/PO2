@@ -17,7 +17,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         int k;
         string F;
         double a, b, l, epsilon, delta, x, u, fu, lambda, flambda, minimo;
-        double[] x_Zero;
+        double[] x_Zero = null;
         MathParser m = new MathParser();
         public Form1()
         {
@@ -252,6 +252,21 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             return -1;
 
 
+        }
+
+        //Cálculo do gradiente da função
+
+        public double vetorGradiente(double[] Grad)
+        {
+            double[] vetorAux = null;
+            
+
+            //Copiando valores pra um vetor auxiliar
+            vetorAux[0] = x_Zero[0];
+            vetorAux[1] = x_Zero[1];
+            Grad[0] = DerivadaPrimeira(vetorAux[0]);
+            Grad[1] = DerivadaPrimeira(vetorAux[1]);
+            return 0;
         }
 
 
@@ -612,6 +627,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         //10 - Fletcher Reeves
         //11 - Davidon Fletcher Powell
         //Botão de calcular
+
+
 
         public void HookeAndJeeves ()
         {
