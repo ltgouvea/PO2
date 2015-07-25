@@ -595,6 +595,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 k++;
                 xnovo = (x - (derivada_prim / derivada_seg));
                 x = xnovo;
+                derivada_prim = DerivadaPrimeira(x);
+                derivada_seg = DerivadaSegunda(x);
                 textBoxResultado.AppendText("\r\n| x = " + Convert.ToString(x) + " | F'(x)" + Convert.ToString(derivada_prim) +
                                             " | F''(x) = " + Convert.ToString(derivada_seg));
                 if (derivada_prim == 0)
