@@ -54,8 +54,11 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             {
                 try
                 {
+                    //Inicializando o vetor
                     x_Zero[0] = Convert.ToDouble(textBox1.Text);
                     x_Zero[1] = Convert.ToDouble(textBox2.Text);
+                    m.X = x_Zero[0];
+                    m.Y = x_Zero[1];       
                 }
                 catch (Exception e)
                 {
@@ -259,11 +262,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         public double vetorGradiente(double[] Grad)
         {
             double[] vetorAux = null;
-            
-
             //Copiando valores pra um vetor auxiliar
             vetorAux[0] = x_Zero[0];
             vetorAux[1] = x_Zero[1];
+            //Derivando
             Grad[0] = DerivadaPrimeira(vetorAux[0]);
             Grad[1] = DerivadaPrimeira(vetorAux[1]);
             return 0;
@@ -272,11 +274,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         
         //Busca Uniforme 
-        /// <summary>
-        /// fAntigo = valor da função da iteração anterior (f(a - delta))
-        /// xDescarte = ponto pra marcar o refinamento
-        /// </summary>
-
+        /// fAntigo = valor pra voltar a função na hora do refinamento 
+        /// 
+        /// 
+        /// 
         public void BuscaUniforme()
         {
             textBoxResultado.Clear();
@@ -308,7 +309,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                         a += q;
                         m.X = a;
                         fx = m.ValueAsDouble;
-                        textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) +"|  Q =  " + Convert.ToString(q) +  "| A =   " + Convert.ToString(a) + "|  F(x)=  " + m.ValueAsString);
+                        textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) +
+                                                    "|  Q =  " + Convert.ToString(q) +
+                                                    "| A =   " + Convert.ToString(a) +
+                                                    "|  F(x)=  " + m.ValueAsString);
                         if (fx > fAntigo)
                         {
                             minimo = Convert.ToDouble(m.X);
@@ -320,7 +324,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 else
                 {
                     k++;
-                    textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) + "|  Delta =  " + Convert.ToString(delta) + "| A =   " + Convert.ToString(a) + "|  F(x)=  " + m.ValueAsString);
+                    textBoxResultado.AppendText("\r\n | K = " + Convert.ToString(k) +
+                                                "|  Delta =  " + Convert.ToString(delta) +
+                                                "| A =   " + Convert.ToString(a) +
+                                                "|  F(x)=  " + m.ValueAsString);
         
                 }
 
@@ -529,7 +536,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
                 return;
             }
-            while (((b-a) > l) && ((j-k) > 1))
+            while (((b-a) > l) && ((j - k -2) >= 0))
 	        {   
 	            k++;
                 m.X = u;
@@ -553,9 +560,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 {
                     b = lambda;
                     lambda = u;
-                    u = a + (F[j - k - 2] / F[j - k]) * (b - a);        
-                    
-                      
+                    u = a + (F[j - k - 2] / F[j - k]) * (b - a);                              
                 }
 
                 if ((k == 100) ||((i-k) == 0))
@@ -622,16 +627,14 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         }
 
         //FIM DOS MÉTODOS PARA MONOVARIÁVEIS
+
         //Início dos métodos para multivariáveis
         //7 - Hooke and Jeeves
         //8 - Newton
         //9 - Gradiente
         //10 - Fletcher Reeves
         //11 - Davidon Fletcher Powell
-        //Botão de calcular
-
-
-
+        
         public void HookeAndJeeves ()
         {
             MessageBox.Show("Método ainda não implementado");
