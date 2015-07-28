@@ -86,7 +86,7 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 159);
+            this.groupBox1.Size = new System.Drawing.Size(265, 166);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Métodos";
@@ -427,7 +427,7 @@
             this.groupBox3.Controls.Add(this.textBoxResultado);
             this.groupBox3.Location = new System.Drawing.Point(12, 187);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(634, 173);
+            this.groupBox3.Size = new System.Drawing.Size(576, 173);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Resultados";
@@ -436,11 +436,11 @@
             // 
             this.textBoxResultado.BackColor = System.Drawing.SystemColors.ControlText;
             this.textBoxResultado.ForeColor = System.Drawing.Color.Chartreuse;
-            this.textBoxResultado.Location = new System.Drawing.Point(6, 19);
+            this.textBoxResultado.Location = new System.Drawing.Point(7, 19);
             this.textBoxResultado.Multiline = true;
             this.textBoxResultado.Name = "textBoxResultado";
             this.textBoxResultado.ReadOnly = true;
-            this.textBoxResultado.Size = new System.Drawing.Size(615, 148);
+            this.textBoxResultado.Size = new System.Drawing.Size(563, 148);
             this.textBoxResultado.TabIndex = 0;
             this.textBoxResultado.Text = "Aqui vão aparecer os resultados das iterações";
             // 
@@ -448,9 +448,9 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(635, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(594, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 169);
+            this.pictureBox1.Size = new System.Drawing.Size(169, 169);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -459,7 +459,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 370);
+            this.ClientSize = new System.Drawing.Size(764, 370);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

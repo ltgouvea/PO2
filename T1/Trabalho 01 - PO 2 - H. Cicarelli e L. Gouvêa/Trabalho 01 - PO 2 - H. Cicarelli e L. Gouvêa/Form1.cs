@@ -17,19 +17,42 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         int k;
         string F;
         double a, b, l, epsilon, delta, x, u, fu, lambda, flambda, minimo;
-        double[] x_Zero = null;
+        double[] x_Zero = new double[2];
+        double[] d = new double[2];
+        double[] y = new double[2];
         MathParser m = new MathParser();
         public Form1()
         {
-            InitializeComponent();
-            
-            //Temos que aprender a usar as paradinhas do parser, tem documentação na pasta acho
+            InitializeComponent();            
+        }
+
+        //Função pra inicializar todas as variáveis com 0
+        //Chamas depois de executar cada método pra limpar as variáveis
+        public Boolean ReiniciaVariaveis()
+        {
+            try
+            {
+                a = b = l = epsilon = delta = x = u = fu = lambda = flambda = minimo = 0;
+                for (int i = 0; i < 2; i++)
+                {
+                    d[i] = y[i] = 0;
+                }
+            }
+            catch ( Exception )
+            {
+                return false;
+                throw;
+            }
+            finally
+            {
+                Console.WriteLine("Variáveis Reiniciadas.");                
+            }
+            return true;
         }
 
         //Função pra verificar entrada de dados: O parser não aceita coisas como x² ou 3x representando produto, sempre tem que usar * ou ^ como sinais
         public bool Verifica()
         {
-            
             try
             {
                 m.Expression = textBoxFuncao.Text;
@@ -39,14 +62,11 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 l = Convert.ToDouble(textBoxL.Text);
                 epsilon = Convert.ToDouble(textBoxEpsilon.Text);
                 delta = Convert.ToDouble(textBoxDelta.Text);
-
-
             }
             catch (Exception e)
             {
                 MessageBox.Show("Erro na entrada de dados: " + e.Message);
-                return false;
-                
+                return false;                
             }
 
             /// PARA AS MULTIVARIÁVEIS
@@ -160,13 +180,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         {
             double fx, fxmaish, fxmenosh;
             double h = 0.25;
-
             double derivada;
 
             while (h > epsilon)
-            {
-
-            
+            {            
                 //f(x)
                 m.X = x;
                 fx = m.ValueAsDouble;
@@ -208,11 +225,10 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         //FIM - Derivada primeira
         //Derivada segunda
 
-        public double DerivadaSegunda(double x)
+        public double DerivadaSegunda( double x )
         {
             double fx, fxmaish, fxmenosh;
             double h = 0.25;
-
             double derivada;
 
             while (h > epsilon)
@@ -235,7 +251,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
                 derivada = ((fxmaish + fxmenosh) - (2*fx)) / (4 * h * h);
 
-                if (derivada <= epsilon)
+                if ( derivada <= epsilon )
                 {
                     return (derivada);
                 }
@@ -259,7 +275,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
         //Cálculo do gradiente da função
 
-        public double vetorGradiente(double[] Grad)
+        public double VetorGradiente( double[] Grad )
         {
             double[] vetorAux = null;
             //Copiando valores pra um vetor auxiliar
@@ -269,6 +285,17 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             Grad[0] = DerivadaPrimeira(vetorAux[0]);
             Grad[1] = DerivadaPrimeira(vetorAux[1]);
             return 0;
+        }
+
+      //Cálculo da norma de um vetor para os métodos multivariáveis
+        public double Norma( double[] vet )
+        {
+            double soma_quadrados = 0;
+            foreach ( double elemento in vet )
+			  {
+            soma_quadrados += elemento;
+			  }
+            return (Math.Sqrt(soma_quadrados));
         }
 
 
@@ -288,7 +315,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             bool achou = false;
 
 
-            while ((achou == false) && ((b - a) > l))
+            while ( (achou == false) && ((b - a) > l) )
             {
                 fAntigo = m.ValueAsDouble;
                 a += delta;
@@ -296,13 +323,13 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 fx = m.ValueAsDouble;
 
                 //Refinamento
-                if (fx > fAntigo)
+                if ( fx > fAntigo )
                 {
                     fAntigo = m.ValueAsDouble;
                     a -= (2*delta);
                     m.X = a;
                     q = delta / 10;                     
-                    while (fAntigo < fx)
+                    while ( fAntigo < fx )
                     {
                         k++;
                         fAntigo = m.ValueAsDouble;
@@ -313,7 +340,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                                                     "|  Q =  " + Convert.ToString(q) +
                                                     "| A =   " + Convert.ToString(a) +
                                                     "|  F(x)=  " + m.ValueAsString);
-                        if (fx > fAntigo)
+                        if ( fx > fAntigo )
                         {
                             minimo = Convert.ToDouble(m.X);
                             achou = true;
@@ -331,24 +358,13 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         
                 }
 
-                if(k == 200)
+                if( k == 200 )
                 {
                     break;
                 }
-                
-
             }
-
-           
-
             minimo = fAntigo;
-            
-
-
-
-
-
-
+            ReiniciaVariaveis();
         }
         //Fim - Busca Uniforme
 
@@ -361,26 +377,26 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         {
             textBoxResultado.Clear();
 
-            while ((b - a) > l)
+            while ( (b - a) > l )
             {
                 k++;
                 x = (a + b) / 2;
                 double dfdx = DerivadaPrimeira(x);
-                if (dfdx > 0)
+                if ( dfdx > 0 )
                 {
                     b = x;
                 }
-                if (dfdx < 0)
+                if ( dfdx < 0 )
                 {
                     a = x;
                 }
-                if (dfdx == 0)
+                if ( dfdx == 0 )
                 {
                     textBoxResultado.AppendText("| K = " + Convert.ToString(k) + " | a = " + Convert.ToString(a) + " | b" + Convert.ToString(b) +
                                                 " | x = " + Convert.ToString(x));
                     break;
                 }
-                if (k == 500)
+                if ( k == 500 )
                 {
                     break;
                 }
@@ -389,7 +405,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             }
             textBoxResultado.AppendText("| K = " + Convert.ToString(k) + " | a = " + Convert.ToString(a) + " | b" + Convert.ToString(b) +
                                         " | x = " + Convert.ToString(x));
-
+            ReiniciaVariaveis();
         }
         //Fim - Bisseção
 
@@ -409,7 +425,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             u = a + beta * (b - a);
             lambda = a + alpha * (b - a);
 
-            while ((b-a) > l)
+            while ( (b-a) > l )
             {
                 k++;
                 m.X = u;
@@ -418,14 +434,14 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 flambda = m.ValueAsDouble;
                 
                 textBoxResultado.AppendText("\r\n| K = " + Convert.ToString(k) + "| u = " + Convert.ToString(u) + "| lambda = " + Convert.ToString(lambda) + "| f(u) = " + Convert.ToString(fu) +"| f(lambda) = " + Convert.ToString(flambda));
-                if (fu > flambda)
+                if ( fu > flambda )
                 {
                     a = u;
                     u = lambda;
                     lambda = a + alpha * (b - a);
                 }
 
-                if (flambda > fu)
+                if ( flambda > fu )
                 {
                     b = lambda;
                     lambda = u;
@@ -440,12 +456,12 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
             x = (a + b) / 2;
             textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
-
+            ReiniciaVariaveis();
         }
         //Fim - Seção Áurea
 
         //Busca Dicotômica
-        /// <summary>
+        /// <summary Resumo do algoritmo>
         /// busca Dicotômica
         /// x = (a+b)/2 - epsilon 
         /// z = (a+b)/2 + epsilon
@@ -464,8 +480,8 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             while ((b-a) >= l)
             {
                 k++;
-                x = ((a + b) / 2) - epsilon;
-                z = ((a + b) / 2) + epsilon;
+                x = ( (a + b) / 2 ) - epsilon;
+                z = ( (a + b) / 2 ) + epsilon;
                 m.X = x;
                 Fx = m.ValueAsDouble;
                 m.X = z;
@@ -493,14 +509,14 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
             x = (a + b)/2;
             textBoxResultado.AppendText("\r\n X* = " + Convert.ToString(x));
-
+            ReiniciaVariaveis();
 
         }
         //Fim - Busca Dicotômica
 
         //Fibonacci
         /// <summary>
-        /// Fibonacci : estoura o vetor às vezes
+        /// 
         /// </summary>
         
         public void BuscaFibonacci()
@@ -516,7 +532,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             Fn = (b-a) / l;
             j = 0;
 
-            for (i = 2; i < 1000; i++)
+            for ( i = 2; i < 1000; i++ )
 			{
 			    F[i] = F[i-1] + F[i-2];
                 if ((F[i] > Fn) || i == 1000)
@@ -536,7 +552,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                 textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
                 return;
             }
-            while (((b-a) > l) && ((j - k -2) >= 0))
+            while ( ((b-a) > l) && ((j - k -2) >= 0) )
 	        {   
 	            k++;
                 m.X = u;
@@ -571,7 +587,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             
             x = (a + b) / 2;
             textBoxResultado.AppendText("\r\n X = " + Convert.ToString(x));
-
+            ReiniciaVariaveis();
         }        
         //Fim - Fibonacci
 
@@ -580,7 +596,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         /// <summary>
         /// Algoritmo:
         /// dados: função, ponto inicial (padrão: a + b / 2), erro
-        /// x[k+1] = x[k] - derivadaprimeira / derivadasegunda
+        /// x[k+1] = x[k] - derivada_primeira / derivada_segunda
         /// </summary>
          
         public void Newton()
@@ -595,7 +611,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             derivada_prim = DerivadaPrimeira(x);
             derivada_seg = DerivadaSegunda(x);
 
-            while (Math.Abs(derivada_prim) > epsilon)
+            while ( Math.Abs(derivada_prim) > epsilon )
             {
                 k++;
                 xnovo = (x - (derivada_prim / derivada_seg));
@@ -613,7 +629,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
                     break;
                 }
 
-                if (Math.Abs(derivada_prim) < epsilon)
+                if ( Math.Abs(derivada_prim) < epsilon )
                 {
                     break;
                 }
@@ -623,7 +639,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             textBoxResultado.AppendText("\r\n | X* = " + Convert.ToString(xnovo) + " |   F(x) = " + Convert.ToString(m.ValueAsDouble) +
                 "| F'(x) =  " + Convert.ToString(DerivadaPrimeira(xnovo)) );
 
-            
+            ReiniciaVariaveis();            
         }
 
         //FIM DOS MÉTODOS PARA MONOVARIÁVEIS
@@ -658,9 +674,9 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
 
 //Fim dos métodos propriamente ditos
 
-        private void buttonCalc_Click(object sender, EventArgs e)
+        private void buttonCalc_Click( object sender, EventArgs e )
         {
-            if (Verifica() == true)
+            if ( Verifica() == true )
             {
                 //Aplicar o método escolhido
                 switch (metodo)
@@ -706,7 +722,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click( object sender, EventArgs e )
         {
             ///Limpar campos
             textBoxA.Clear();
@@ -722,33 +738,7 @@ namespace Trabalho_01___PO_2___H.Cicarelli_e_L.Gouvêa
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             MessageBox.Show("\tPrograma desenvolvido por:\r\n\tLucas T. A. Gouvêa\r\n\te\r\n\tHugo Cicarelli\r\n\tUNESP Bauru, 2015");
-        }
-
-        
-        
-
-        
-
-        
-        
-
-        
-
-        
-        
-
-        
-
-        
-        
-
-        
-
-        
-        
-
-        
-        
+        }        
         //Fim dos métodos
     }
 
